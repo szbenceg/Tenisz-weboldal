@@ -1,0 +1,217 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+li{
+    list-style: none;
+}
+
+.computer-header{
+    visibility: hidden;
+}
+
+#header-container{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: fixed;
+    z-index: 100;
+    /*background-color: rgba(255, 255, 255, 0.7);*/
+    background-color: rgba(255, 255, 255);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu-content a{
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+#company-name-container{
+    display: inline-block;
+    float: right;
+    padding-right: 6vw;
+}
+
+#company-name-logo-container{
+    font-family: 'Piazzolla', serif;
+    font-weight: 500;
+    font-size: 8vw;
+}
+
+#image-container{
+    display: inline-block;
+    position: relative;
+    top: 10;
+}
+
+#small-company-name{
+    text-align: center;
+}
+#company-logo{
+    height: 35px;
+}
+
+.menu-toggle {
+    height: 20px; 
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 25px;
+    left: 25px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.menu-checkbox-style{
+    display: flex;
+    transform: scale(3.2);
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+    margin-left: 9px;
+    margin-top: 2px;
+}
+
+.menu-checkbox:checked ~ ul{
+    transform: none;
+}
+.menu-checkbox:checked ~ .line{
+    opacity: 1;
+    transform: rotate(45deg) translate(-3px, -2px);
+    background: #36383F;
+}
+
+.menu-checkbox:checked ~ .line:nth-last-child(3){
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.menu-checkbox:checked ~ .line:nth-last-child(2){
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+.mobile-navigation-line {
+    position:fixed;
+    background-color: black;
+    height: 60px;
+    width: 100vw;
+}
+
+.line:first-child{
+    transform-origin: 0% 0%;
+}
+    
+.line:nth-last-child(2){
+    transform-origin: 0% 100%;
+}
+
+.line{
+    display: flex;
+    width: 29px;
+    height: 2px;
+    position: relative;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+    background: black;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 5px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+}
+
+.menu-content{
+    position: absolute;
+    font-family: 'Work Sans', sans-serif;
+    line-height: 48px;
+    width: 150px;
+    height: 100vh;
+    box-shadow: 0 0 10px #85888C;
+    margin: -50px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    background-color: #F5F6FA;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.menu-underline{
+    position: relative;
+}
+
+.menu-underline::after{
+    position: absolute;
+    content: '';
+    height: 4px;
+    background-color: #309a3d;
+    bottom: 0%;
+    border-radius: 10px;
+    left: 0%;
+    width: 100%;
+    transition: all 500ms ease;
+
+}
+
+.hover-border{
+    position: relative;
+}
+
+.hover-border::after{
+    content: '';
+    width: 0%;
+    height: 4px;
+    background-color: #309a3d;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    border-radius: 10px;
+    transition: all 500ms ease;
+}
+
+.hover-border:hover::after{
+    left: 0%;
+    width: 100%;
+}
+
+@media screen and (max-width: 400px) {
+    #company-name-logo-container{
+        font-size: 25px;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    #company-name-logo-container{
+        font-size: 35px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    #menu-points-container{
+        padding-right: 5vw;
+    }
+}
+@media screen and (min-width: 1200px) {
+    #menu-points-container a{
+        font-size: 1.6vw;
+    }
+}
+@media screen and (min-width: 1300px) {
+    #menu-points-container a{
+        font-size: 22px;
+    }
+}
+
+input:focus, a:focus{
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
